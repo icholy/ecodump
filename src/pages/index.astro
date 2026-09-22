@@ -1,18 +1,1061 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL;
+const phone = '905-941-3954';
+const phoneHref = 'tel:9059413954';
+const instagram = 'https://instagram.com/ecodumpsolutions';
+
+// GitHub Pages is static, so the quote form needs a third-party endpoint to
+// receive submissions (Formspree, Basin, Web3Forms, etc). Set the endpoint URL
+// here to show the form. While it is empty the contact details stand alone.
+const formAction = '';
+
+const services = [
+  {
+    title: 'Junk removal',
+    body: 'Furniture, appliances, garage and basement clean-outs, estate clear-outs. We do the lifting, loading and sweeping up.',
+  },
+  {
+    title: 'Hauling',
+    body: 'Yard waste, renovation debris, moving leftovers, scrap. Single items or full truckloads, residential or commercial.',
+  },
+  {
+    title: 'Recycling',
+    body: 'Metals, electronics, cardboard, clean wood. Sorted and taken to the right facility — not the dump.',
+  },
+  {
+    title: 'Demolition',
+    body: 'Sheds, decks, fences, hot tubs, interior tear-outs. We take it down and take it away in one visit.',
+  },
+];
+
+const steps = [
+  {
+    title: 'Call or send a photo',
+    body: 'Text a picture of the pile. You get an honest, upfront price based on volume — no hidden fees.',
+  },
+  {
+    title: 'We show up on time',
+    body: 'Pick a window that works. We arrive, confirm the price, and get to work. You don’t lift a thing.',
+  },
+  {
+    title: 'We sort it responsibly',
+    body: 'Donate, recycle, then dispose. You get your space back and know where everything went.',
+  },
+];
+
+const items = [
+  'Furniture',
+  'Appliances',
+  'Mattresses',
+  'Hot tubs',
+  'Electronics',
+  'Scrap metal',
+  'Yard waste',
+  'Renovation debris',
+  'Decks & fences',
+  'Sheds',
+  'Garage clean-outs',
+  'Estate clear-outs',
+  'Office furniture',
+  'Tires',
+  'Exercise equipment',
+  'Cardboard & packaging',
+];
+
+const why = [
+  {
+    title: 'Veteran owned',
+    body: 'Run by Dylan St. Onge with the discipline you’d expect: on time, straight talk, job finished properly.',
+  },
+  {
+    title: 'Upfront pricing',
+    body: 'Price confirmed before we load. What we quote is what you pay.',
+  },
+  {
+    title: 'Niagara local',
+    body: 'Based in the Region, serving every corner of it. Quick turnaround because we’re already nearby.',
+  },
+  {
+    title: 'Landfill last',
+    body: 'Donation and recycling first. We’ll tell you what was diverted from every load.',
+  },
+];
 ---
 
-<Base title="ecodump">
-  <main>
-    <h1>ecodump</h1>
-  </main>
+<Base
+  title="EcoDump Solutions | Junk Removal, Hauling & Recycling in Niagara"
+  description="Junk removal, hauling, recycling and demolition across the Niagara Region. Veteran owned and operated. Call 905-941-3954 for a free quote."
+>
+  <div class="page">
+    <div class="topbar">
+      <span>Serving the Niagara Region</span>
+      <span class="dot">•</span>
+      <span>Veteran owned &amp; operated</span>
+      <span class="dot">•</span>
+      <a href={phoneHref}>{phone}</a>
+    </div>
+
+    <header class="site-header">
+      <nav class="wrap">
+        <a href="#top" class="brand">
+          <img src={`${base}/logo.png`} alt="EcoDump Solutions" width="476" height="521" />
+        </a>
+        <div class="links">
+          <a href="#services">Services</a>
+          <a href="#how">How it works</a>
+          <a href="#take">What we take</a>
+          <a href="#quote" class="btn btn-primary btn-sm">Get a free quote</a>
+        </div>
+      </nav>
+    </header>
+
+    <section id="top" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow eyebrow-light"><span class="rule"></span>Hauling · Removal · Recycling</div>
+          <h1>We haul it.<br />You feel <em>good</em> about it.</h1>
+          <p>
+            Junk removal, hauling, recycling and demolition across the Niagara Region. We sort, donate and
+            recycle everything we can — so less of your stuff ends up in a landfill.
+          </p>
+          <div class="hero-actions">
+            <a href={phoneHref} class="btn btn-primary btn-lg">Call {phone}</a>
+            <a href="#quote" class="btn btn-outline btn-lg">Request a quote</a>
+          </div>
+          <ul class="hero-points">
+            <li>Same-week service</li>
+            <li>Upfront pricing</li>
+            <li>Veteran owned</li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <img
+            class="hero-photo"
+            src={`${base}/dylan.jpg`}
+            alt="EcoDump truck and trailer loaded up on a job in the Niagara Region"
+            width="849"
+            height="1132"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="wrap stack">
+        <div class="section-head">
+          <span class="eyebrow">Services</span>
+          <h2>One call. One truck. Job done.</h2>
+          <p>
+            Residential and commercial. If it needs to go, we'll move it — and we'll tell you exactly where
+            it ended up.
+          </p>
+        </div>
+        <div class="cards">
+          {
+            services.map((s, i) => (
+              <div class="card">
+                <span class="card-num">0{i + 1}</span>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="eco">
+      <div class="wrap">
+        <h2>Eco-friendly solutions for a cleaner tomorrow.</h2>
+        <p>
+          Every load gets sorted. Usable furniture and goods go to local charities, metals and electronics
+          get recycled, and clean wood and concrete are diverted. Landfill is our last resort, not our first
+          stop.
+        </p>
+      </div>
+    </section>
+
+    <section id="how" class="section section-white">
+      <div class="wrap stack">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>Three steps, no surprises.</h2>
+        </div>
+        <div class="steps">
+          {
+            steps.map((st, i) => (
+              <div class="step">
+                <span class="step-num">{i + 1}</span>
+                <h3>{st.title}</h3>
+                <p>{st.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="take" class="section">
+      <div class="wrap take">
+        <div class="take-copy">
+          <span class="eyebrow">What we take</span>
+          <h2>Almost anything that fits in the truck.</h2>
+          <p class="lead">
+            Don't see it here? Send a photo and we'll tell you if we can take it. We don't handle hazardous
+            waste, paint, or chemicals.
+          </p>
+          <a href={phoneHref} class="take-link">Not sure? Call {phone} →</a>
+        </div>
+        <ul class="chips">
+          {items.map((it) => <li>{it}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section why">
+      <div class="wrap stack">
+        <h2>Local, accountable, and here to stay.</h2>
+        <div class="why-grid">
+          {
+            why.map((w) => (
+              <div class="why-item">
+                <h3>{w.title}</h3>
+                <p>{w.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="section section-white">
+      <div class="wrap quote">
+        <div class="quote-copy">
+          <span class="eyebrow">Get a free quote</span>
+          <h2>Tell us what needs to go.</h2>
+          <p class="lead">
+            Fastest way is a call or text with a photo.{" "}
+            {formAction ? "Or fill out the form and Dylan will get back to you the same day." : "Dylan will get back to you the same day."}
+          </p>
+          <div class="contact">
+            <a href={phoneHref}>
+              <span class="badge badge-green">TEL</span>
+              <span><strong>{phone}</strong><small>Call or text — photos welcome</small></span>
+            </a>
+            <a href={instagram} target="_blank" rel="noopener">
+              <span class="badge badge-blue">IG</span>
+              <span><strong>@ecodumpsolutions</strong><small>See recent jobs</small></span>
+            </a>
+            <div>
+              <span class="badge badge-navy">ON</span>
+              <span>
+                <strong>Niagara Region</strong>
+                <small>St. Catharines · Niagara Falls · Welland · Fort Erie · Grimsby &amp; beyond</small>
+              </span>
+            </div>
+          </div>
+        </div>
+        {
+          formAction && (
+            <form class="quote-form" method="post" action={formAction}>
+              <div class="form-fields">
+                <div class="form-row">
+                  <label>
+                    Name
+                    <input name="name" required />
+                  </label>
+                  <label>
+                    Phone
+                    <input name="phone" type="tel" required />
+                  </label>
+                </div>
+                <label>
+                  Service
+                  <select name="service">
+                    <option>Junk removal</option>
+                    <option>Hauling</option>
+                    <option>Recycling</option>
+                    <option>Demolition</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </label>
+                <label>
+                  What needs to go?
+                  <textarea
+                    name="details"
+                    rows="4"
+                    placeholder="e.g. Old couch, fridge and a pile of deck boards in the backyard, St. Catharines"
+                  />
+                </label>
+                <button type="submit" class="btn btn-primary btn-lg">
+                  Send quote request
+                </button>
+                <span class="form-note">No spam. We'll only use this to get back to you.</span>
+              </div>
+              <div class="form-sent" hidden>
+                <strong>Thanks — we've got it.</strong>
+                <span>Dylan will reach out shortly. For anything urgent, call {phone}.</span>
+              </div>
+            </form>
+          )
+        }
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-brand">
+          <img src={`${base}/logo.png`} alt="" width="476" height="521" />
+          <span>© {new Date().getFullYear()} EcoDump Solutions · Veteran owned · Niagara Region, ON</span>
+        </div>
+        <div class="footer-links">
+          <a href={phoneHref}>{phone}</a>
+          <a href={instagram} target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <a href={phoneHref} class="btn btn-primary sticky-call">Call {phone}</a>
+  </div>
 </Base>
 
+<script>
+  // Submit the quote form in place and show the thank-you state. Falls back to
+  // a normal form submission if the endpoint does not accept fetch requests.
+  const form = document.querySelector<HTMLFormElement>('.quote-form');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button');
+    if (button) button.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error(`Form endpoint returned ${res.status}`);
+      form.querySelector('.form-fields')?.setAttribute('hidden', '');
+      form.querySelector('.form-sent')?.removeAttribute('hidden');
+    } catch {
+      form.submit();
+    }
+  });
+</script>
+
 <style>
-  main {
+  .page {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.1;
+    margin: 0;
+    color: var(--navy-800);
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin: 0;
+    color: var(--navy-800);
+  }
+
+  .lead,
+  .section-head p {
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--ink-muted);
+    text-wrap: pretty;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-500);
+  }
+
+  .eyebrow-light {
+    color: var(--green-200);
+  }
+
+  .eyebrow .rule {
+    width: 28px;
+    height: 2px;
+    background: var(--green-500);
+    display: inline-block;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    border-radius: 10px;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+
+  .btn-primary {
+    background: var(--green-500);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--green-600);
+    color: #fff;
+  }
+
+  .btn-outline {
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+
+  .btn-outline:hover {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .btn-sm {
+    font-size: 15px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  .btn-lg {
+    font-size: 17px;
+    padding: 16px 26px;
+  }
+
+  .btn-outline.btn-lg {
+    padding: 14px 24px;
+  }
+
+  /* Top bar */
+  .topbar {
+    background: var(--navy-800);
+    color: var(--mist-strong);
+    font-size: 14px;
+    padding: 8px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .topbar .dot {
+    opacity: 0.5;
+  }
+
+  .topbar a {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .topbar a:hover {
+    color: var(--green-200);
+  }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(243, 245, 242, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-header nav {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .links a:not(.btn) {
+    color: var(--ink);
+  }
+
+  .links a:not(.btn):hover {
+    color: var(--green-500);
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(180deg, var(--navy-800) 0%, var(--navy-700) 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    padding-top: 88px;
+    padding-bottom: 96px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(40px, 5.2vw, 68px);
+    line-height: 1.02;
+    margin: 0;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--green-300);
+  }
+
+  .hero-copy > p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--mist);
+    max-width: 520px;
+    text-wrap: pretty;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-points {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    color: var(--mist);
+    padding: 8px 0 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .hero-points li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-points li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green-300);
+  }
+
+  .hero-visual {
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-photo {
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Sections */
+  .section {
+    padding: 96px 0;
+  }
+
+  .section-white {
+    background: #fff;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 640px;
+  }
+
+  /* Services */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--green-500);
+    box-shadow: 0 16px 32px -20px rgba(11, 64, 96, 0.35);
+  }
+
+  .card-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--green-500);
+    letter-spacing: 0.08em;
+  }
+
+  .card h3 {
+    font-size: 22px;
+  }
+
+  .card p,
+  .step p,
+  .why-item p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    text-wrap: pretty;
+  }
+
+  /* Eco band */
+  .eco {
+    background: var(--green-500);
+    color: #fff;
+    padding: 64px 0;
+  }
+
+  .eco .wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    align-items: center;
+  }
+
+  .eco h2 {
+    color: #fff;
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  .eco p {
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+    color: #eaf5ea;
+    text-wrap: pretty;
+  }
+
+  /* How it works */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    padding-top: 20px;
+    border-top: 3px solid var(--navy-800);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 40px;
+    color: var(--blue-600);
+    line-height: 1;
+  }
+
+  .step h3 {
+    font-size: 21px;
+  }
+
+  /* What we take */
+  .take {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 48px;
+    align-items: start;
+  }
+
+  .take-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .take-link {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--blue-600);
+    margin-top: 8px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .chips li {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* Why EcoDump */
+  .why {
+    background: var(--navy-800);
+    color: #fff;
+  }
+
+  .why h2 {
+    color: #fff;
+    max-width: 640px;
+    text-wrap: balance;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+  }
+
+  .why-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .why-item h3 {
+    font-size: 19px;
+    color: var(--green-200);
+  }
+
+  .why-item p {
+    color: var(--mist);
+  }
+
+  /* Quote / contact */
+  .quote {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 56px;
+    align-items: start;
+  }
+
+  .quote-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+    font-size: 17px;
+  }
+
+  .contact > * {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--ink);
+  }
+
+  .contact .badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: var(--font-display);
+  }
+
+  .badge-green {
+    background: var(--green-500);
+  }
+
+  .badge-blue {
+    background: var(--blue-600);
+  }
+
+  .badge-navy {
+    background: var(--navy-800);
+  }
+
+  .contact strong {
+    font-weight: 600;
+  }
+
+  .contact small {
+    display: block;
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+
+  .quote-form {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .quote-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .quote-form input,
+  .quote-form select,
+  .quote-form textarea {
+    padding: 12px 14px;
+    border: 1px solid #c9d2cc;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff;
+    color: var(--ink);
+  }
+
+  .quote-form textarea {
+    resize: vertical;
+  }
+
+  .quote-form button {
+    border: 0;
+    cursor: pointer;
+  }
+
+  .form-note {
+    font-size: 13px;
+    color: var(--ink-muted);
+    text-align: center;
+  }
+
+  .form-sent {
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-sent strong {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--navy-800);
+  }
+
+  .form-sent span {
+    color: var(--ink-muted);
+  }
+
+  .quote-form [hidden] {
+    display: none;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--navy-900);
+    color: #9fb6c5;
+    padding: 40px 0;
+    font-size: 14px;
+    margin-top: auto;
+  }
+
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .footer-brand img {
+    height: 44px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: #fff;
+  }
+
+  .footer-links a:hover {
+    color: var(--green-200);
+  }
+
+  /* Mobile sticky call bar */
+  .sticky-call {
+    display: none;
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 30;
+    font-size: 17px;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 759px) {
+    .sticky-call {
+      display: flex;
+    }
+
+    footer {
+      padding-bottom: 96px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .topbar .dot {
+      display: none;
+    }
+
+    .links a:not(.btn) {
+      display: none;
+    }
+
+    .hero-grid {
+      padding-top: 56px;
+      padding-bottom: 64px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
   }
 </style>
