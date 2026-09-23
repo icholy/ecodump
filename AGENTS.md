@@ -5,9 +5,10 @@
 - Shared styles live in `src/styles/global.css` and are loaded by the layout.
   Page-specific styles go in a `<style>` block in the page itself — Astro
   scopes them to that page automatically, so experimenting is safe.
-- The site is served at https://icholy.github.io/ecodump/ under the `/ecodump`
-  base path. Never write root-absolute URLs like `/foo`; prefix internal links
-  and asset references with `import.meta.env.BASE_URL`.
+- The site is served from the root of the custom domain https://ecodump.ca, so
+  internal links and asset references are plain root-absolute URLs like
+  `/logo.png`. There is no `base` path configured — don't reintroduce one or
+  prefix paths with `import.meta.env.BASE_URL`.
 - Deployment is automatic: every push to `master` builds the site and
   publishes it via the GitHub Actions workflow in `.github/workflows/pages.yml`.
 

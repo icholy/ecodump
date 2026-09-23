@@ -3,6 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://icholy.github.io',
-  base: '/ecodump',
+  site: 'https://ecodump.ca',
 });
