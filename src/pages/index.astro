@@ -112,7 +112,10 @@ const why: { title: string; body: string; poppy?: boolean }[] = [
           <a href="#services">Services</a>
           <a href="#how">How it works</a>
           <a href="#take">What we take</a>
-          <a href="#estimate" class="btn btn-primary btn-sm">Get a free estimate</a>
+          <a href="#estimate" class="btn btn-primary btn-sm nav-cta">
+            <span class="nav-cta-long">Get a free estimate</span>
+            <span class="nav-cta-short">Free estimate</span>
+          </a>
         </div>
       </nav>
     </header>
@@ -462,6 +465,12 @@ const why: { title: string; body: string; poppy?: boolean }[] = [
     padding: 12px 20px;
     border-radius: 8px;
     white-space: nowrap;
+  }
+
+  /* The header CTA cannot wrap, so on narrow phones it runs off the right
+     edge. Swap in a shorter label rather than let it overflow. */
+  .nav-cta-short {
+    display: none;
   }
 
   .btn-lg {
@@ -1079,9 +1088,14 @@ const why: { title: string; body: string; poppy?: boolean }[] = [
     right: 16px;
     bottom: 16px;
     z-index: 30;
-    font-size: 17px;
-    padding: 16px;
+    /* Scales with the viewport so the label always fits between the 16px
+       insets, down to the narrowest phones. */
+    font-size: clamp(14px, 4.2vw, 17px);
+    padding: clamp(12px, 3.4vw, 16px) 12px;
     border-radius: 12px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
   }
 
@@ -1119,6 +1133,16 @@ const why: { title: string; body: string; poppy?: boolean }[] = [
     .brand-name span {
       font-size: 11.5px;
       letter-spacing: 0.16em;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .nav-cta-long {
+      display: none;
+    }
+
+    .nav-cta-short {
+      display: inline;
     }
 
     .links a:not(.btn) {
