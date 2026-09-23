@@ -1100,6 +1100,12 @@ const why: { title: string; body: string; poppy?: boolean }[] = [
       display: none;
     }
 
+    /* Narrow enough that the eyebrow wraps, leaving the rule reading as a
+       stray dash in front of the text. */
+    .eyebrow .rule {
+      display: none;
+    }
+
     /* Nav text links drop out below, so keep the brand narrow enough that it
        and the call-to-action button still share the row. */
     .brand img {
