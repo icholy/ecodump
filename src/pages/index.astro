@@ -100,7 +100,11 @@ const why = [
     <header class="site-header">
       <nav class="wrap">
         <a href="#top" class="brand">
-          <img src="/logo.png" alt="EcoDump Solutions" width="476" height="521" />
+          <img src="/emblem.webp" alt="" width="217" height="160" />
+          <span class="brand-name">
+            <strong>ECODUMP</strong>
+            <span>SOLUTIONS</span>
+          </span>
         </a>
         <div class="links">
           <a href="#services">Services</a>
@@ -517,9 +521,34 @@ const why = [
   }
 
   .brand img {
-    height: 56px;
+    height: 52px;
     width: auto;
     display: block;
+  }
+
+  /* Wordmark set in text rather than baked into the image, so it stays sharp
+     and legible at header size. Colours sampled from the logo artwork. */
+  .brand-name {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-family: var(--font-display);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .brand-name strong {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #074065;
+  }
+
+  .brand-name span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.185em;
+    color: #135b84;
   }
 
   .links {
@@ -1053,6 +1082,21 @@ const why = [
   @media (max-width: 640px) {
     .topbar .dot {
       display: none;
+    }
+
+    /* Nav text links drop out below, so keep the brand narrow enough that it
+       and the call-to-action button still share the row. */
+    .brand img {
+      height: 42px;
+    }
+
+    .brand-name strong {
+      font-size: 17px;
+    }
+
+    .brand-name span {
+      font-size: 11.5px;
+      letter-spacing: 0.16em;
     }
 
     .links a:not(.btn) {
