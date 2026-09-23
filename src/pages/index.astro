@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Poppy from '../components/Poppy.astro';
 
 const phone = '905-941-3954';
 const phoneHref = 'tel:9059413954';
@@ -64,9 +65,10 @@ const items = [
   'Cardboard & packaging',
 ];
 
-const why = [
+const why: { title: string; body: string; poppy?: boolean }[] = [
   {
     title: 'Veteran owned',
+    poppy: true,
     body: 'Run by Dylan St. Onge with the discipline you’d expect: on time, straight talk, job finished properly.',
   },
   {
@@ -92,7 +94,7 @@ const why = [
     <div class="topbar">
       <span>Serving the Niagara Region</span>
       <span class="dot">•</span>
-      <span>Veteran owned &amp; operated</span>
+      <span class="vet"><Poppy />Veteran owned &amp; operated</span>
       <span class="dot">•</span>
       <a href={phoneHref}>{phone}</a>
     </div>
@@ -131,7 +133,6 @@ const why = [
           <ul class="hero-points">
             <li>Same-week service</li>
             <li>Upfront pricing</li>
-            <li>Veteran owned</li>
           </ul>
         </div>
         <div class="hero-visual">
@@ -226,7 +227,10 @@ const why = [
           {
             why.map((w) => (
               <div class="why-item">
-                <h3>{w.title}</h3>
+                <h3>
+                  {w.poppy && <Poppy size={17} />}
+                  {w.title}
+                </h3>
                 <p>{w.body}</p>
               </div>
             ))
@@ -317,7 +321,7 @@ const why = [
       <div class="wrap">
         <div class="footer-brand">
           <img src="/logo.png" alt="" width="476" height="521" />
-          <span>© {new Date().getFullYear()} EcoDump Solutions · Veteran owned · Niagara Region, ON</span>
+          <span>© {new Date().getFullYear()} EcoDump Solutions · Niagara Region, ON</span>
         </div>
         <div class="footer-links">
           <a href={phoneHref}>{phone}</a>
@@ -484,6 +488,15 @@ const why = [
 
   .topbar .dot {
     opacity: 0.5;
+  }
+
+  /* Veteran mentions carry a poppy. inline-flex keeps the mark on the text
+     baseline wherever it lands, including mid-sentence in the footer. */
+  .vet {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
   }
 
   .topbar a {
@@ -859,6 +872,9 @@ const why = [
   .why-item h3 {
     font-size: 19px;
     color: var(--green-200);
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .why-item p {
