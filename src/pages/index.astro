@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 const base = import.meta.env.BASE_URL;
 const phone = '905-941-3954';
 const phoneHref = 'tel:9059413954';
+const email = 'ecodumpsolutions@outlook.com';
 const instagram = 'https://instagram.com/ecodumpsolutions';
 
 // GitHub Pages is static, so the quote form needs a third-party endpoint to
@@ -245,6 +246,10 @@ const why = [
               <span class="badge badge-green">TEL</span>
               <span><strong>{phone}</strong><small>Call or text — photos welcome</small></span>
             </a>
+            <a href={`mailto:${email}`}>
+              <span class="badge badge-green-dark">EML</span>
+              <span><strong>{email}</strong><small>Send photos and details</small></span>
+            </a>
             <a href={instagram} target="_blank" rel="noopener">
               <span class="badge badge-blue">IG</span>
               <span><strong>@ecodumpsolutions</strong><small>See recent jobs</small></span>
@@ -313,6 +318,7 @@ const why = [
         </div>
         <div class="footer-links">
           <a href={phoneHref}>{phone}</a>
+          <a href={`mailto:${email}`}>{email}</a>
           <a href={instagram} target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
@@ -876,6 +882,10 @@ const why = [
 
   .badge-green {
     background: var(--green-500);
+  }
+
+  .badge-green-dark {
+    background: var(--green-600);
   }
 
   .badge-blue {
